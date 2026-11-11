@@ -7,10 +7,15 @@ if(KEYSTONE_LOCAL_DIR)
 	message(STATUS "Keystone: using local Keystone directory.")
 	set(KEYSTONE_SOURCE_DIR "${KEYSTONE_LOCAL_DIR}")
 	set(_KEYSTONE_URL "")
+	set(_KEYSTONE_PATCH_COMMAND "")
 else()
 	message(STATUS "Keystone: using remote Keystone revision.")
 	set(KEYSTONE_SOURCE_DIR "")
 	set(_KEYSTONE_URL "${KEYSTONE_URL}")
+	# Only patch the sources we download, never a user-provided directory.
+	set(_KEYSTONE_PATCH_COMMAND
+		${CMAKE_COMMAND} -Dkeystone_path=<SOURCE_DIR> -P ${CMAKE_CURRENT_SOURCE_DIR}/patch.cmake
+	)
 endif()
 
 ExternalProject_Add(keystone-project
@@ -18,7 +23,9 @@ ExternalProject_Add(keystone-project
 	URL ${_KEYSTONE_URL}
 	URL_HASH SHA256=${KEYSTONE_ARCHIVE_SHA256}
 	DOWNLOAD_NAME keystone.zip
+	PATCH_COMMAND ${_KEYSTONE_PATCH_COMMAND}
 	CMAKE_ARGS
+		${CMAKE_POLICY_VERSION_MINIMUM_OPTION}
 		-DCMAKE_INSTALL_PREFIX=${KEYSTONE_INSTALL_DIR}
 		# This does not work on MSVC, but may be useful on Linux.
 		-DCMAKE_BUILD_TYPE=Release

@@ -11,6 +11,13 @@ if(CMAKE_CXX_COMPILER)
 	set(CMAKE_CXX_COMPILER_OPTION "-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
 endif()
 
+# Newer CMake (4.0+, also 3.31) refuses to configure projects that require
+# CMake older than 3.5. Several of our dependencies still do, so tell their
+# sub-builds to accept it. Older CMake versions do not know the variable.
+if(NOT CMAKE_VERSION VERSION_LESS 3.31)
+	set(CMAKE_POLICY_VERSION_MINIMUM_OPTION "-DCMAKE_POLICY_VERSION_MINIMUM=3.5")
+endif()
+
 set(MSVC_GE $<BOOL:${MSVC}>)
 set(MSVC_CONFIG $<${MSVC_GE}:$<CONFIG>/>)
 

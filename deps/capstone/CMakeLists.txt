@@ -66,6 +66,7 @@ ExternalProject_Add(capstone-project
 	URL_HASH SHA256=${CAPSTONE_ARCHIVE_SHA256}
 	DOWNLOAD_NAME capstone.zip
 	CMAKE_ARGS
+		${CMAKE_POLICY_VERSION_MINIMUM_OPTION}
 		-DCMAKE_INSTALL_PREFIX=${CAPSTONE_INSTALL_DIR}
 		# This does not work on MSVC, but may be useful on Linux.
 		-DCMAKE_BUILD_TYPE=Release

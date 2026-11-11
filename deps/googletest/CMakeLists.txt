@@ -52,6 +52,7 @@ ExternalProject_Add(googletest
 	URL_HASH SHA256=${GOOGLETEST_ARCHIVE_SHA256}
 	DOWNLOAD_NAME googletest.zip
 	CMAKE_ARGS
+		${CMAKE_POLICY_VERSION_MINIMUM_OPTION}
 		-DCMAKE_INSTALL_PREFIX=${GOOGLETEST_INSTALL_DIR}
 		# This does not work on MSVC, but is useful on Linux.
 		-DCMAKE_BUILD_TYPE=Release

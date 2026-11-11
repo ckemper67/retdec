@@ -43,6 +43,7 @@ ExternalProject_Add(llvm-project
 	URL_HASH SHA256=${LLVM_ARCHIVE_SHA256}
 	DOWNLOAD_NAME llvm.zip
 	CMAKE_ARGS
+		${CMAKE_POLICY_VERSION_MINIMUM_OPTION}
 		-DCMAKE_INSTALL_PREFIX=${LLVM_INSTALL_DIR}
 		# Force a release build (we don't need to debug LLVM).
 		# This has no effect on Windows with MSVC, but is useful on Linux.
