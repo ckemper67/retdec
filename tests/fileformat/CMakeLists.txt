@@ -1,5 +1,8 @@
 
+find_package(OpenSSL 1.1.1 REQUIRED)
+
 add_executable(tests-fileformat
+	authenticode_tests.cpp
 	coff_format_tests.cpp
 	elf_format_tests.cpp
 	format_detection_tests.cpp
@@ -20,7 +23,9 @@ target_include_directories(tests-fileformat
 target_link_libraries(tests-fileformat
 	retdec::fileformat
 	retdec::utils
+	retdec::deps::authenticode
 	retdec::deps::gmock_main
+	OpenSSL::Crypto
 )
 
 set_target_properties(tests-fileformat
