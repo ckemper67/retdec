@@ -28,6 +28,8 @@ set_target_properties(tests-fileformat
 		OUTPUT_NAME "retdec-tests-fileformat"
 )
 
+add_test(NAME tests-fileformat COMMAND tests-fileformat)
+
 install(TARGETS tests-fileformat
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

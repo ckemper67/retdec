@@ -18,6 +18,8 @@ set_target_properties(tests-loader
 		OUTPUT_NAME "retdec-tests-loader"
 )
 
+add_test(NAME tests-loader COMMAND tests-loader)
+
 install(TARGETS tests-loader
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

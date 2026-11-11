@@ -29,6 +29,8 @@ set_target_properties(tests-capstone2llvmir
 		OUTPUT_NAME "retdec-tests-capstone2llvmir"
 )
 
+add_test(NAME tests-capstone2llvmir COMMAND tests-capstone2llvmir)
+
 install(TARGETS tests-capstone2llvmir
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

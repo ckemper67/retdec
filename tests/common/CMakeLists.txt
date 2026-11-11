@@ -24,6 +24,8 @@ set_target_properties(tests-common
 		OUTPUT_NAME "retdec-tests-common"
 )
 
+add_test(NAME tests-common COMMAND tests-common)
+
 install(TARGETS tests-common
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

@@ -19,6 +19,8 @@ set_target_properties(tests-llvm-emul
 		OUTPUT_NAME "retdec-tests-llvm-emul"
 )
 
+add_test(NAME tests-llvm-emul COMMAND tests-llvm-emul)
+
 install(TARGETS tests-llvm-emul
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

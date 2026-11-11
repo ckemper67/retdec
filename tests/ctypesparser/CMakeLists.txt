@@ -13,6 +13,8 @@ set_target_properties(tests-ctypesparser
 		OUTPUT_NAME "retdec-tests-ctypesparser"
 )
 
+add_test(NAME tests-ctypesparser COMMAND tests-ctypesparser)
+
 install(TARGETS tests-ctypesparser
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

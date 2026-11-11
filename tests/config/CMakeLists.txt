@@ -14,6 +14,8 @@ set_target_properties(tests-config
 		OUTPUT_NAME "retdec-tests-config"
 )
 
+add_test(NAME tests-config COMMAND tests-config)
+
 install(TARGETS tests-config
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

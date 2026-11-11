@@ -15,6 +15,8 @@ set_target_properties(tests-serdes
 		OUTPUT_NAME "retdec-tests-serdes"
 )
 
+add_test(NAME tests-serdes COMMAND tests-serdes)
+
 install(TARGETS tests-serdes
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

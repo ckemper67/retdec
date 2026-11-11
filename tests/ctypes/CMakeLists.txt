@@ -37,6 +37,8 @@ set_target_properties(tests-ctypes
 		OUTPUT_NAME "retdec-tests-ctypes"
 )
 
+add_test(NAME tests-ctypes COMMAND tests-ctypes)
+
 install(TARGETS tests-ctypes
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

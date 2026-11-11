@@ -14,6 +14,8 @@ set_target_properties(tests-unpacker
 		OUTPUT_NAME "retdec-tests-unpacker"
 )
 
+add_test(NAME tests-unpacker COMMAND tests-unpacker)
+
 install(TARGETS tests-unpacker
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

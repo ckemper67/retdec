@@ -42,6 +42,8 @@ set_target_properties(tests-bin2llvmir
 		OUTPUT_NAME "retdec-tests-bin2llvmir"
 )
 
+add_test(NAME tests-bin2llvmir COMMAND tests-bin2llvmir)
+
 install(TARGETS tests-bin2llvmir
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )

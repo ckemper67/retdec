@@ -19,6 +19,8 @@ set_target_properties(tests-demangler
 		OUTPUT_NAME "retdec-tests-demangler"
 )
 
+add_test(NAME tests-demangler COMMAND tests-demangler)
+
 install(TARGETS tests-demangler
 	RUNTIME DESTINATION ${RETDEC_INSTALL_TESTS_DIR}
 )
