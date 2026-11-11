@@ -65,7 +65,7 @@ static void parse_name_attributes(X509_NAME* raw, Attributes* attr)
         const char* key = OBJ_nid2sn(OBJ_obj2nid(X509_NAME_ENTRY_get_object(entryName)));
 
         ByteArray array = {0};
-        if (byte_array_init(&array, asn1String->data, asn1String->length) == -1)
+        if (byte_array_init(&array, ASN1_STRING_get0_data(asn1String), ASN1_STRING_length(asn1String)) == -1)
             break;
 
         if (strcmp(key, "C") == 0 && !attr->country.data)
